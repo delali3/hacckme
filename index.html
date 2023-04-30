@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+<body>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maiores quas nisi dolores necessitatibus beatae temporibus cum eum, officiis architecto expedita praesentium repellendus soluta fugit alias inventore, sunt corrupti. Minus, ipsam?
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque tempora nobis animi voluptate, eveniet sapiente, earum dicta vel inventore repellat temporibus! Animi numquam aspernatur veritatis tempore suscipit, expedita quis ad.
+    </p>
+    <div id="custom-menu">
+  <ul>
+    <li>GodMode 😏</li>
+    <li>GodMode 😁</li>
+    <li>GodMode 🤣</li>
+  </ul>
+</div>
+
+<script>
+//Prevent copy paste via HTML attributes
+var body = document.body;
+body.setAttribute("oncopy","return false");
+body.setAttribute("oncut","return false");
+body.setAttribute("onpaste","return false");
+document.addEventListener('selectstart', function(e) {
+  e.preventDefault();
+});
+
+
+//Disable 
+document.addEventListener("keydown", function(event) {
+    event.preventDefault();
+});
+
+
+
+  var customMenu = document.getElementById("custom-menu");
+
+  document.addEventListener("contextmenu", function(event) {
+    event.preventDefault();
+
+    // Show the custom menu
+    customMenu.style.display = "block";
+    customMenu.style.left = event.pageX + "px";
+    customMenu.style.top = event.pageY + "px";
+  });
+
+  document.addEventListener("click", function(event) {
+    // Hide the custom menu when clicked anywhere on the document
+    customMenu.style.display = "none";
+  });
+</script>
+
+<style>
+    body {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently supported by Chrome and Opera */
+}
+
+  #custom-menu {
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+    padding: 8px;
+    font-size: 14px;
+    z-index: 100;
+  }
+
+  #custom-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  #custom-menu li {
+    cursor: pointer;
+    padding: 6px 0;
+  }
+
+  #custom-menu li:hover {
+    background-color: #f2f2f2;
+  }
+</style>
+
+</body>
+</html>
